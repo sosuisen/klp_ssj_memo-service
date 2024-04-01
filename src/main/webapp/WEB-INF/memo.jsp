@@ -11,7 +11,7 @@
 	<h1>メモを入力してください</h1>
 	<form action="./" method="post">
 		<input type="text" name="memo">
-		<input type="submit" value="保存">
+		<button>追加</button>
 	</form>
 	<h2>メモ一覧</h2>
 	<ul>
