@@ -39,9 +39,11 @@ public class MemoServlet extends HttpServlet {
 		// Webブラウザから送られてきたデータを取得します。
 		var memo = request.getParameter("memo");
 
-		// Modelのメモ追加機能を呼び出します。
-		model.addMemo(memo);
-		
+		var action = request.getParameter("action");
+		switch(action) {
+			case "add" -> model.addMemo(memo);		
+			case "clear" -> model.clearMemo();
+        }
 		// この後の処理はdoGetメソッドと同じなので、doGetに任せます。
 		doGet(request, response);
 	}

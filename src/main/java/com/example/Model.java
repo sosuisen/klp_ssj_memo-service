@@ -42,4 +42,12 @@ public class Model {
             e.printStackTrace();
         }
 	}
+	
+	synchronized public void clearMemo() {
+		try {
+			Files.deleteIfExists(Path.of(filePath));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }
