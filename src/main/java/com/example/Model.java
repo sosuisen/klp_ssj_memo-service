@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Model {
 	// テキストファイルの書き込み、読み込みを実行する単純なモデルです。
@@ -25,6 +27,9 @@ public class Model {
 	synchronized public void addMemo(String text) {
 		try {
 			var oldMemo = getMemo();
+
+			text += LocalDateTime.now().format(DateTimeFormatter.ofPattern(" (yyyy-MM-dd HH:mm:ss)"));
+			
 			var newMemo = "";
 			if (oldMemo.isEmpty()) {
 				newMemo = text;
